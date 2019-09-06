@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<div>
+			<meta charset="UTF-8"/>
+			<title>Áudio com JavaScript</title>
+			<link rel="stylesheet" href="css/styles.css">
+			<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+				<a class="nav-link" href="inicio.html">Inicio</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link " href="html.html">HTML</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="javascript.html">JavaScript</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="sobre.html">Sobre</a>
+			  </li>
+			<ul>
+		</div>
+	</head>
+	<body>
+		<div class="container">
+			<br>
+			<div class="mx-auto" style="width: 400px;">
+				<h2><strong>Recursos do JavaScript</strong><h2><br><br>
+			</div>
+			<div class="container">
+				<h3><strong>API de áudio da Web</strong></h3>
+				<br>
+				<p>
+					A Web Audio API fornece um sistema poderoso e versátil para controlar o áudio na Web, 
+					permitindo que os desenvolvedores escolham fontes de áudio, adicionem efeitos ao áudio, 
+					criem visualizações de áudio, apliquem efeitos espaciais (como pan) e muito mais.
+				</p>
+				<p>
+					A API de áudio da Web envolve manipular operações de áudio dentro de um contexto de 
+					áudio e foi projetada para permitir o roteamento modular . Operações básicas de áudio 
+					são executadas com nós de áudio, que são vinculados para formar um gráfico de roteamento 
+					de áudio . Várias fontes - com diferentes tipos de layout de canal - são suportadas mesmo 
+					em um único contexto. Esse design modular oferece a flexibilidade de criar funções complexas 
+					de áudio com efeitos dinâmicos.
+				</p>
+				<br>
+				<h3><strong>Gerando um beep</strong></h3>
+				<p>Vamos começar gerando um simples <em>beep</em></p>
+				<div class="container">
+					<img src="imagem/gerabeep.png" class="img-fluid" alt="Responsive image">
+				</div>
+				<br>
+				<p>
+					Primeiro nós instanciamos o <code>AudioContext</code>, que é o principal objeto para podermos gerar um som. 
+					A partir dele nós criamos um oscilador, que é responsável por emitir um sinal contínuo, que será o nosso som.
+				</p>
+				<p>
+					Precisamos indicar o tipo de onde que nosso oscilador irá gerar. 
+					Indicamos que queremos uma onda senoidal (<em>sine</em>).
+				</p>
+				<p>
+					Depois conectamos o nosso oscilador ao <code>context.destination</code>, que representa o destino final do áudio. Se você está no computador, provavelmente isso indica as suas caixas de som.
+					Por fim, executamos a função <code>start()</code> para iniciar o som.
+				</p>
+				<p>
+					Para parar o som, basta executar <code>oscillator.stop()</code>.
+				</p>
+				<br>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<div class="mx-auto" style="width: 80px;">
+							<button class="btn btn-dark" id="player" onclick="player('sine')">Iniciar</button>
+							<!-- <button class="btn" id="player" onclick="player('sawtooth')">Iniciar</button> -->
+					</div>
+				</div>
+				<br>
+				<h3><strong>Efeitos diferentes parando o som</strong></h3>
+				<br>
+				<p>
+					Dependendo do tempo que se é usado para parar, o efeito do som pode dar uma sensação
+				   totalmente diferente.
+				</p>
+				<br>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<div class="mx-auto" style=" width: 80px;">
+						<button class="btn btn-dark" id="startButton">Iniciar</button>
+						<button class="btn btn-dark" id="stopButton1">Parar(x = 0.1)</button>
+  						<button class="btn btn-dark" id="stopButton2">Parar(x = 1)</button>
+  						<button class="btn btn-dark" id="stopButton3">Parar(x = 5)</button>
+					</div>
+				</div>
+				<br>
+				<h3><strong>Notas</strong></h3>
+				<br>
+				<p>Podemos gerar sons diferentes com determiada frequência</p>
+				<p>Para alterar a frequência, basta indicar um valor em <code>oscillator.frequency.value</code>. Para tocar um “Dó” (C4):</p>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<pre>
+					const C4 = 261.6,
+   								D4 = 293.7,
+  								E4 = 329.6,
+ 								F4 = 349.2,
+								G4 = 392.0,
+								A4 = 440.0,
+								B4 = 493.9;
+
+								oscillator.frequency.value = C4;
+					</pre>
+				</div>
+				<br>
+				<p><strong>Exemplo:</strong></p>
+				<br>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<div class="mx-auto" style="width: 300px;">
+						<button class="btn btn-dark" id="stopButton" >C</button>
+						<button class="btn btn-dark" id="stopButton22" >D</button>
+						<button class="btn btn-dark" id="stopButton33" >E</button>
+						<button class="btn btn-dark" id="stopButton44" >F</button>
+						<button class="btn btn-dark" id="stopButton55" >G</button>
+						<button class="btn btn-dark" id="stopButton66" >A</button>
+						<button class="btn btn-dark" id="stopButton77" >B</button>
+					</div>
+				</div>
+				<br>
+				<h3><strong>Escolha sua frequência</strong></h3>
+				<p>Digite uma frequência para testar</p>
+				<br>
+				<form class="form-inline">
+					<div class="form-group mx-sm-3 mb-2">
+					  <label for="nota" class="sr-only">Nota</label>
+					  <input type="number" class="form-control" id="nota" placeholder="Nota">
+					</div>
+					<button class="btn btn-primary mb-2" id="ouvirSom">Ouvir</button>
+				</form>
+				<br>
+				<h3><strong>Exemplos de projetos</strong></h3>
+				<br>
+				<a href="https://experiments.withgoogle.com/song-maker" title="Chrome Music Lab: Song Maker">
+					Chrome Music Lab: Song Maker
+				</a>
+				<br><br>
+				<a href="http://mdn.github.io/violent-theremin/" title="violent-theremin">
+					violent-theremin
+				</a>
+				<br><br>
+				<h3><strong>Referências</strong></h3>
+				<br>
+				<a href="https://developer.mozilla.org/pt-BR/docs/Web/API/AudioContext" title="AudioContext">
+					AudioContext
+				</a>
+				<br><br>
+				<a href="https://developer.mozilla.org/pt-BR/docs/Web/API/OscillatorNode" title="OscillatorNode">
+					OscillatorNode
+				</a>
+				<br><br>
+				<a href="https://www.treinaweb.com.br/blog/gerando-sons-com-a-web-audio-api-do-javascript/" title="Gerando sons com a Web Audio API do JavaScript">
+					Gerando sons com a Web Audio API do JavaScript
+				</a>
+				<br><br><br><br>
+			</div>
+		</div>
+
+	</body>
+	
+	<script src="js/geraBeep.js"></script>
+	<script src="js/alternaBeep.js"></script>
+	<script src="js/frequencia.js"></script>
+
+</html>

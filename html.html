@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<div>
+			<meta charset="UTF-8"/>
+			<title>Ferramentas de áudio</title>
+			<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+				<a class="nav-link" href="inicio.html">Inicio</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="html.html">HTML</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="javascript.html">JavaScript</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="sobre.html">Sobre</a>
+			  </li>
+			<ul>
+		</div>
+	</head>
+	<body>
+		<div class="container">
+			<br>
+			<div class="mx-auto" style="width: 400px;">
+				<h2><strong>Recursos do HTML5</strong><h2>
+			</div>
+			<div class="container">
+				<h3><strong>Incorporando mídia</strong></h3>
+				<br>
+				<p>
+					Utlizando o <strong>HTML 5</strong> é simples incorporar mídias
+				</p>
+				<p>
+					A tag <code>< audio ></code> serve para reproduzirmos mídia de áudio de forma simples exemplo:
+				</p>
+				<br>
+				<div class="container">
+						<img src="imagem/tagAudio.png" class="img-fluid" alt="Responsive image">
+				</div>
+				<br>
+				<p>
+					Nesse exemplo estamos setando autoplay e controls, que automaticamente habilita os controles do 
+					player, pela tag <code>< source ></code><br> dentro da tag <code>< audio ></code> o audio já é 
+					carregado no navegador. Exemplo:
+				</p>
+				<br>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<div class="mx-auto" style="width: 300px;">
+							<audio autoplay="autoplay" controls="controls">
+								<source src="som/baladeiro.mp3" type="audio/mp3" />
+							</audio>
+					</div>
+				</div>
+				<p><strong>Caso seu navegador não suporte o HTML5 você verá o seguinte: “seu navegador não suporta HTML5”</strong></p>
+				<p>Também é possível fazer modificações no player com CSS, já que o player é um coponente HTML e não um plugin.</p>
+				<br>
+				<h3><strong>Controlando propriedades com o javascript</strong></h3>
+				<br>
+				<p>Com o JavaScript é possível controlar as propriedades do player como PLAY, PAUSE, STOP, MUTE E VOLUME.</p>
+				<div class="shadow-none p-3 mb-5 bg-light rounded" style="width: 90%;">
+					<div class="mx-auto" style="width: 75%;">
+							<audio id="meuAudio">
+								<source src="som/baladeiro.mp3" type="audio/mp3" />
+							</audio>
+							<button class="btn btn-dark" onclick="playAudio()" type="button">Play Audio</button>
+							<button class="btn btn-dark" onclick="pauseAudio()" type="button">Pause Audio</button> 
+							<button class="btn btn-dark" onclick="stopAudio()" type="button">Stop Audio</button>
+							<button class="btn btn-dark" onclick="aumentarVolume()" type="button">Aumentar Volume</button>
+							<button class="btn btn-dark" onclick="diminuirVolume()" type="button">Diminuir Volume</button>
+							<button class="btn btn-dark" onclick="mute()" type="button">Mute</button>		
+					</div>
+				</div>
+				<p>No javascript pegamos o elemento pelo ID e guardamos em uma variável para manipularmos as funções</p>
+				<div class="container">
+						<img src="imagem/controlaPlayer.png" class="img-fluid" alt="Responsive image">
+				</div>
+				<br>
+				<p>Além disso, é possível criar uma playlist para ser executada sequencialmente, trocando o arquivo para 
+					o próximo da lista. <br>É possível personalizar o player da forma que achar melhor, como por exemplo adicionar a barra de 
+					volume ou de execução de áudio.					
+				</p>
+				<p>Bom e por favor não coloquem música tocando quando um site abre, reproduzir um áudio deve ser uma decisão do usuário.</p>
+				<br>
+				<h3><strong>Referências</strong></h3>
+				<br>
+				<a href="https://www.botecodigital.info/web/controlando-o-elemento-audio-do-html5-com-javascript/" title="Controlando o elemento audio do HTML5 com JavaScript">
+					Controlando o elemento audio do HTML5 com JavaScript
+				</a>
+				<br><br>
+				<a href="https://www.w3schools.com/jsref/prop_audio_controls.asp" title="Propriedade de controles de áudio">
+					Propriedade de controles de áudio
+				</a>
+				<br><br>
+				<a href="https://www.devmedia.com.br/html5-as-tags-audio-e-video/26018" title="HTML5 As tags AUDIO e VIDEO">
+					HTML5 As tags AUDIO e VIDEO
+				</a>
+				<br><br><br><br>
+			</div>
+		</div>	
+	</body>
+
+	<script src="js/controlaPlayer.js"></script>
+	<script src="js/recorder.js"></script>
+	
+</html>
