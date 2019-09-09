@@ -75,3 +75,14 @@ stopButton77.addEventListener('click', function(){
 	frequency = b4;
     stopFrenquencia();
 });
+
+function meuValor(){
+    var valor = document.getElementById("selecionaFrequencia").value;
+    frequency = valor;
+    return frequency;
+}
+
+ouvirSom.addEventListener('click', function(){
+    frequency = meuValor();
+    stopFrenquencia();
+})

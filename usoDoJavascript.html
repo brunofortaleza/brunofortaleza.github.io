@@ -122,15 +122,29 @@
 				</div>
 				<br>
 				<h3><strong>Escolha sua frequência</strong></h3>
-				<p>Digite uma frequência para testar</p>
 				<br>
-				<form class="form-inline">
-					<div class="form-group mx-sm-3 mb-2">
-					  <label for="nota" class="sr-only">Nota</label>
-					  <input type="number" class="form-control" id="nota" placeholder="Nota">
-					</div>
-					<button class="btn btn-primary mb-2" id="ouvirSom">Ouvir</button>
-				</form>
+				<div class="container">
+						<img src="imagem/frequencia.png" class="img-fluid" alt="Responsive image">
+				</div>
+				<p>Escolha uma frequência para ouvir</p>
+				<br>
+				<div class="form-group mx-sm-3 mb-2">
+					<select class="form-control" id="selecionaFrequencia" onchange="meuValor()">
+						<option value="523.3">C5 - 523.3</option>
+						<option value="554.4">C#5 - 554.4</option>
+						<option value="587.3">D5 - 587.3</option>
+						<option value="2489">D#7 - 2489</option>
+						<option value="2637">E8 - 2637</option>
+						<option value="1397">F6 - 1397</option>
+						<option value="370.0">F#4 - 370.0</option>
+						
+					</select>
+					<br>
+					<button class="btn btn-dark" id="ouvirSom">Ouvir</button>
+					<!-- <label for="nota" class="sr-only">Nota</label>
+					<input type="number" class="form-control" id="nota" placeholder="Nota">
+					-->	
+				</div>
 				<br>
 				<h3><strong>Exemplos de projetos</strong></h3>
 				<br>
@@ -144,12 +158,16 @@
 				<br><br>
 				<h3><strong>Referências</strong></h3>
 				<br>
+				<a href="https://webaudio.github.io/web-audio-api/" title="Web audio api">
+					Web áudio API
+				</a>
+				<br><br>
 				<a href="https://developer.mozilla.org/pt-BR/docs/Web/API/AudioContext" title="AudioContext">
-					AudioContext
+					Audio Context
 				</a>
 				<br><br>
 				<a href="https://developer.mozilla.org/pt-BR/docs/Web/API/OscillatorNode" title="OscillatorNode">
-					OscillatorNode
+					Oscillator Node
 				</a>
 				<br><br>
 				<a href="https://www.treinaweb.com.br/blog/gerando-sons-com-a-web-audio-api-do-javascript/" title="Gerando sons com a Web Audio API do JavaScript">
